@@ -5,6 +5,7 @@ import { uniqueId } from '../utils'
 
 import Input from './input/Input'
 import Button from './button/Button'
+import TodoList from './todoList/TodoList'
 
 const App: React.FC = () => {
 
@@ -31,6 +32,7 @@ const App: React.FC = () => {
         <div>
             <Input value={inputValue} handleInput={handleInput}/>
             <Button text='Добавить' addTodo={addTodo}/>
+            <TodoList todos={todos}/>
         </div>
     )
 }
