@@ -12,9 +12,12 @@ export interface IInputProps {
 
 export interface ITodoListProps {
     todos: ITodo[]
+    markTodo: (id: number) => void
 }
 
 export interface ITodoItemProps {
+    id: number,
     title: string,
     completed: boolean
+    markTodo: (id: number) => void
 }

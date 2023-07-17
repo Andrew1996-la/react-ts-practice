@@ -16,7 +16,7 @@ const App: React.FC = () => {
         setInputValue(e.target.value)
     }
 
-    const addTodo = () => {
+    const addTodo = (): void => {
         if(!inputValue) return;
 
         setTodos([...todos, {
@@ -28,11 +28,19 @@ const App: React.FC = () => {
         setInputValue('');
     }
 
+    const markTodo = (id: number): void => {
+        setTodos((prevState: ITodo[]) =>
+            prevState.map((todo: ITodo) => (
+                todo.id === id ? {...todo, completed: !todo.completed} : todo
+            ))
+        )
+    }
+
     return (
         <div>
             <Input value={inputValue} handleInput={handleInput}/>
             <Button text='Добавить' addTodo={addTodo}/>
-            <TodoList todos={todos}/>
+            <TodoList todos={todos} markTodo={markTodo}/>
         </div>
     )
 }
