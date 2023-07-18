@@ -7,6 +7,8 @@ import Input from './input/Input'
 import Button from './button/Button'
 import TodoList from './todoList/TodoList'
 
+import s from './app.module.css';
+
 const App: React.FC = () => {
 
     const [todos, setTodos] = useState<ITodo[]>([])
@@ -37,9 +39,11 @@ const App: React.FC = () => {
     }
 
     return (
-        <div>
-            <Input value={inputValue} handleInput={handleInput}/>
-            <Button text='Добавить' addTodo={addTodo}/>
+        <div className={s.appContainer}>
+            <div className={s.controlPanel}>
+                <Input value={inputValue} handleInput={handleInput}/>
+                <Button text='Добавить' addTodo={addTodo}/>
+            </div>
             <TodoList todos={todos} markTodo={markTodo}/>
         </div>
     )

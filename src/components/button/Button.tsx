@@ -1,8 +1,10 @@
 import { IButtonProps } from "../../types/props"
 
+import s from './button.module.css'
+
 const Button = ({text, addTodo}: IButtonProps) => {
   return (
-    <button onClick={addTodo}>{text}</button>
+    <button className={s.addButton} onClick={addTodo}>{text}</button>
   )
 }
 

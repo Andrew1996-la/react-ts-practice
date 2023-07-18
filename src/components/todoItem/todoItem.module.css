@@ -1,0 +1,28 @@
+.listItem {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.text {
+  font-size: 18px;
+  letter-spacing: 1px;
+  width: 80%;
+  word-wrap: break-word;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  opacity: 0.9;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.listItem img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  cursor: pointer;
+}
