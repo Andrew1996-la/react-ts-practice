@@ -38,13 +38,22 @@ const App: React.FC = () => {
         )
     }
 
+    const deleteTodo = (id: number) => {
+        setTodos((prevState: ITodo[]) => 
+            prevState.filter((todo: ITodo) => todo.id !== id )
+        )
+    }
+
     return (
         <div className={s.appContainer}>
             <div className={s.controlPanel}>
                 <Input value={inputValue} handleInput={handleInput}/>
                 <Button text='Добавить' addTodo={addTodo}/>
             </div>
-            <TodoList todos={todos} markTodo={markTodo}/>
+            <TodoList 
+                todos={todos} 
+                markTodo={markTodo}
+                deleteTodo={deleteTodo}/>
         </div>
     )
 }

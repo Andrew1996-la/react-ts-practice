@@ -3,7 +3,7 @@ import TodoItem from "../todoItem/TodoItem"
 
 import s from './todoList.module.css';
 
-const TodoList = ({todos, markTodo}: ITodoListProps) => {
+const TodoList = ({todos, markTodo, deleteTodo}: ITodoListProps) => {
 
     const todosElements = todos.map(todo => (
         <TodoItem 
@@ -11,7 +11,8 @@ const TodoList = ({todos, markTodo}: ITodoListProps) => {
             id={todo.id}
             title={todo.title} 
             completed={todo.completed}
-            markTodo={markTodo}/>
+            markTodo={markTodo}
+            deleteTodo={deleteTodo}/>
     ))
   
     return (

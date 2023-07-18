@@ -13,6 +13,7 @@ export interface IInputProps {
 export interface ITodoListProps {
     todos: ITodo[]
     markTodo: (id: number) => void
+    deleteTodo: (id: number) => void
 }
 
 export interface ITodoItemProps {
@@ -20,4 +21,5 @@ export interface ITodoItemProps {
     title: string,
     completed: boolean
     markTodo: (id: number) => void
+    deleteTodo: (id: number) => void
 }
