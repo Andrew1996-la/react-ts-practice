@@ -7,6 +7,7 @@ export interface IButtonProps {
 
 export interface IInputProps {
     value: string,
+    addTodo: () => void
     handleInput: (e:React.ChangeEvent<HTMLInputElement>) => void
 }
 

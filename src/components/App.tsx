@@ -47,7 +47,7 @@ const App: React.FC = () => {
     return (
         <div className={s.appContainer}>
             <div className={s.controlPanel}>
-                <Input value={inputValue} handleInput={handleInput}/>
+                <Input value={inputValue} handleInput={handleInput} addTodo={addTodo}/>
                 <Button text='Добавить' addTodo={addTodo}/>
             </div>
             <TodoList 
