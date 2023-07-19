@@ -4,7 +4,7 @@ import s from './input.module.css'
 
 const Input = ({value, handleInput, addTodo}: IInputProps) => {
     
-    const handleKeyDown = (e: any) => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement></HTMLInputElement>) => {
         if(e.key !== 'Enter') return
         addTodo()
     } 
