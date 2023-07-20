@@ -25,6 +25,7 @@ const App: React.FC = () => {
             id: uniqueId(),
             title: inputValue,
             completed: false,
+            editMode: false,
         }])
 
         setInputValue('');
@@ -38,11 +39,28 @@ const App: React.FC = () => {
         )
     }
 
-    const deleteTodo = (id: number) => {
+    const deleteTodo = (id: number): void => {
         setTodos((prevState: ITodo[]) => 
             prevState.filter((todo: ITodo) => todo.id !== id )
         )
     }
+
+    const toggleEditMode = (id: number): void => {
+        setTodos((prevState: ITodo[]) =>
+        prevState.map((todo: ITodo) => (
+            todo.id === id ? {...todo, editMode: !todo.editMode} : todo
+        )))
+    }
+
+    const renameTodo = (id: number, text: string): void => {
+        setTodos((prevState: ITodo[]) => 
+            prevState.map((todo: ITodo) => (
+                todo.id === id ? {...todo, title: text} : todo
+            ))
+        )        
+    }
+
+    
 
     return (
         <div className={s.appContainer}>
@@ -53,7 +71,9 @@ const App: React.FC = () => {
             <TodoList 
                 todos={todos} 
                 markTodo={markTodo}
-                deleteTodo={deleteTodo}/>
+                deleteTodo={deleteTodo}
+                toggleEditMode={toggleEditMode}
+                renameTodo={renameTodo}/>
         </div>
     )
 }

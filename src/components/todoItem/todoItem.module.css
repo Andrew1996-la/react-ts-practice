@@ -9,6 +9,7 @@
   letter-spacing: 1px;
   width: 80%;
   word-wrap: break-word;
+  cursor: pointer;
 }
 
 .checkbox {

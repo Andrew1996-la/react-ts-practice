@@ -3,7 +3,7 @@ import TodoItem from "../todoItem/TodoItem"
 
 import s from './todoList.module.css';
 
-const TodoList = ({todos, markTodo, deleteTodo}: ITodoListProps) => {
+const TodoList = ({todos, markTodo, toggleEditMode, renameTodo, deleteTodo}: ITodoListProps) => {
 
     const todosElements = todos.map(todo => (
         <TodoItem 
@@ -12,7 +12,10 @@ const TodoList = ({todos, markTodo, deleteTodo}: ITodoListProps) => {
             title={todo.title} 
             completed={todo.completed}
             markTodo={markTodo}
-            deleteTodo={deleteTodo}/>
+            deleteTodo={deleteTodo}
+            editMode = {todo.editMode}
+            toggleEditMode={toggleEditMode}
+            renameTodo={renameTodo}/>
     ))
   
     return (
