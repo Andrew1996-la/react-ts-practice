@@ -2,7 +2,7 @@ import s from './inputEditMode.module.css'
 
 import { IInputEditMode } from '../../types/props'
 
-const InputEditMode = ({text, renameTodo, id}: IInputEditMode) => {
+const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) => {
 
   const handleRename = (e: React.ChangeEvent<HTMLInputElement>) => {
     renameTodo(id, e.target.value)
@@ -10,7 +10,7 @@ const InputEditMode = ({text, renameTodo, id}: IInputEditMode) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return
-
+    toggleEditMode(id);
   }
   
   return (
@@ -19,8 +19,7 @@ const InputEditMode = ({text, renameTodo, id}: IInputEditMode) => {
       value={text}
       onKeyDown={handleKeyDown}
       onChange={(e) => handleRename(e)}
-      className={s.inputEditMode}
-     />
+      className={s.inputEditMode}/>
   )
 }
 

@@ -17,7 +17,7 @@ const TodoItem = ({id, title, completed, markTodo,editMode, deleteTodo, renameTo
         <span className={s.text} onDoubleClick={() => toggleEditMode(id)}>
           {
             editMode ? 
-              <InputEditMode  renameTodo={renameTodo} text={title} id={id}/> :
+              <InputEditMode toggleEditMode={toggleEditMode} renameTodo={renameTodo} text={title} id={id}/> :
               title
           }
         </span>
