@@ -12,10 +12,11 @@ const Input = ({value, handleInput, addTodo}: IInputProps) => {
     return (
         <>
             <input 
-            className={s.input}
-            value={value} 
-            onKeyDown={handleKeyDown}
-            onChange={(e) => handleInput(e)}/>
+                placeholder="Добавить новую задачу"
+                className={s.input}
+                value={value} 
+                onKeyDown={handleKeyDown}
+                onChange={(e) => handleInput(e)}/>
         </>
     )
 }
