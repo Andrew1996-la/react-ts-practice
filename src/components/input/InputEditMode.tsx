@@ -8,19 +8,18 @@ const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) =
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function useOutsideAlerter(ref: React.RefObject<HTMLInputElement>) {
-    useEffect(() => {
-      function handleClickOutside(event: MouseEvent) {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-          toggleEditMode(id)
-        }
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (inputRef.current && !inputRef.current.contains(event.target as Node)) {
+        toggleEditMode(id)
       }
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [ref]);
-  }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [inputRef]);
+
   
   const handleRename = (e: React.ChangeEvent<HTMLInputElement>) => {
     renameTodo(id, e.target.value)
@@ -31,7 +30,6 @@ const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) =
     toggleEditMode(id);
   }
 
-  useOutsideAlerter(inputRef)
   return (
     <input
       ref={inputRef} 
