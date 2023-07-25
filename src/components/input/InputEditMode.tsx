@@ -9,6 +9,9 @@ const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) =
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+
+    inputRef.current?.focus();
+
     function handleClickOutside(event: MouseEvent) {
       if (inputRef.current && !inputRef.current.contains(event.target as Node)) {
         toggleEditMode(id)

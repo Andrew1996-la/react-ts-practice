@@ -1,3 +1,4 @@
+
 import { ITodoItemProps } from "../../types/props"
 import InputEditMode from "../input/InputEditMode";
 
@@ -6,7 +7,6 @@ import close from '../../img/close.png';
 
 const TodoItem = ({id, title, completed, markTodo,editMode, deleteTodo, renameTodo, toggleEditMode}: ITodoItemProps) => {  
   
-
   return (
     <li className={s.listItem}>
         <input 
@@ -17,7 +17,7 @@ const TodoItem = ({id, title, completed, markTodo,editMode, deleteTodo, renameTo
         <span className={s.text} onDoubleClick={() => toggleEditMode(id)}>
           {
             editMode ? 
-              <InputEditMode 
+              <InputEditMode
                 toggleEditMode={toggleEditMode} 
                 renameTodo={renameTodo} 
                 text={title} 
