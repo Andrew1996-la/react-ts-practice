@@ -4,4 +4,3 @@ export interface ITodo {
     completed: boolean,
     editMode: boolean,
 }
-

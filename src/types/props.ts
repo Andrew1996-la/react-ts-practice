@@ -32,7 +32,7 @@ export interface ITodoItemProps {
 }
 
 export interface IInputEditMode {
-    text: string;
+    text: string
     id: number
     toggleEditMode: (id: number) => void
     renameTodo: (id: number, text: string) => void 

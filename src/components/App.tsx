@@ -1,4 +1,6 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+
+import {localStorageGetTodo, localStorageSetTodo} from '../localstorage'
 
 import { ITodo } from '../types/data'
 import { uniqueId } from '../utils'
@@ -10,14 +12,20 @@ import TodoList from './todoList/TodoList'
 import s from './app.module.css';
 
 const App: React.FC = () => {
-
-    const [todos, setTodos] = useState<ITodo[]>([])
+    
+    const currentTodos = localStorageGetTodo('todos')
+    
+    const [todos, setTodos] = useState<ITodo[]>(currentTodos)
     const [inputValue, setInputValue] = useState<string>('')
+    
+    useEffect(() => {
+        localStorageSetTodo('todos', todos)
+    }, [todos])
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
     }
-
+    
     const addTodo = (): void => {
         if(!inputValue) return;
 
@@ -27,9 +35,11 @@ const App: React.FC = () => {
             completed: false,
             editMode: false,
         }])
-
+        
         setInputValue('');
     }
+    
+    
 
     const markTodo = (id: number): void => {
         setTodos((prevState: ITodo[]) =>
