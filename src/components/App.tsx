@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-import {localStorageGetTodo, localStorageSetTodo} from '../localstorage'
+import { localStorageGetTodo, localStorageSetTodo } from '../localstorage'
 
 import { ITodo } from '../types/data'
 import { uniqueId } from '../utils'
@@ -12,10 +12,8 @@ import TodoList from './todoList/TodoList'
 import s from './app.module.css';
 
 const App: React.FC = () => {
-    
-    const currentTodos = localStorageGetTodo('todos')
-    
-    const [todos, setTodos] = useState<ITodo[]>(currentTodos)
+
+    const [todos, setTodos] = useState<ITodo[]>(localStorageGetTodo('todos') || []);
     const [inputValue, setInputValue] = useState<string>('')
     
     useEffect(() => {

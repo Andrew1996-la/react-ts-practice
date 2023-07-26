@@ -5,5 +5,9 @@ export const localStorageSetTodo = (key: string, value: ITodo[]) => {
 }
 
 export const localStorageGetTodo = (key: string) => {
-    return JSON.parse(localStorage.getItem(key) || "");
+    try{
+        return JSON.parse(localStorage.getItem(key) || "");
+    } catch (error) {
+        return null
+    }
 }
