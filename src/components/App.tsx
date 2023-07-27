@@ -20,7 +20,7 @@ const App: React.FC = () => {
         localStorageSetTodo('todos', todos)
     }, [todos])
 
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleInput: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
         setInputValue(e.target.value)
     }
     
