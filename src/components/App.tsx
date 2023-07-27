@@ -20,7 +20,7 @@ const App: React.FC = () => {
         localStorageSetTodo('todos', todos)
     }, [todos])
 
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setInputValue(e.target.value)
     }
     
@@ -36,8 +36,6 @@ const App: React.FC = () => {
         
         setInputValue('');
     }
-    
-    
 
     const markTodo = (id: number): void => {
         setTodos((prevState: ITodo[]) =>

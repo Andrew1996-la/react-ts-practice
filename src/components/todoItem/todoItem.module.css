@@ -12,6 +12,16 @@
   cursor: pointer;
 }
 
+.textCompleted {
+  font-size: 18px;
+  letter-spacing: 1px;
+  width: 80%;
+  word-wrap: break-word;
+  cursor: pointer;
+  text-decoration: line-through;
+  color: gray;
+}
+
 .checkbox {
   width: 20px;
   height: 20px;
