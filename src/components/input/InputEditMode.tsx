@@ -3,9 +3,12 @@ import {useRef, useEffect} from 'react'
 import s from './inputEditMode.module.css'
 
 import { IInputEditMode } from '../../types/props'
+import { useAppDispatch } from '../../hooks'
+import { toggleEditMode, renameTodo } from '../../store/todoSlise'
 
-const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) => {
+const InputEditMode = ({text, id}: IInputEditMode) => {
 
+  const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -13,7 +16,7 @@ const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) =
 
     function handleClickOutside(event: MouseEvent) {
       if (inputRef.current && !inputRef.current.contains(event.target as Node)) {
-        toggleEditMode(id)
+        dispatch(toggleEditMode(id))
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -24,12 +27,13 @@ const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) =
 
   
   const handleRename = (e: React.ChangeEvent<HTMLInputElement>) => {
-    renameTodo(id, e.target.value)
+    let newTile = e.target.value
+    dispatch(renameTodo({id, newTile}))
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return
-    toggleEditMode(id);
+    dispatch(toggleEditMode(id));
   }
 
   return (
@@ -38,7 +42,7 @@ const InputEditMode = ({text, renameTodo, toggleEditMode, id}: IInputEditMode) =
       type="text" 
       value={text}
       onKeyDown={handleKeyDown}
-      onChange={(e) => handleRename(e)}
+      onChange={(e) => handleRename(e) }
       className={s.inputEditMode}/>
   )
 }

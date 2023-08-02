@@ -3,8 +3,12 @@ import InputEditMode from "../input/InputEditMode";
 
 import s from './todoItem.module.css';
 import close from '../../img/close.png';
+import { useAppDispatch } from "../../hooks";
+import { deleteTodo, markTodo, toggleEditMode } from "../../store/todoSlise";
 
-const TodoItem = ({id, title, completed, markTodo,editMode, deleteTodo, renameTodo, toggleEditMode}: ITodoItemProps) => {  
+const TodoItem = ({id, title, completed,editMode}: ITodoItemProps) => {  
+
+  const dispatch = useAppDispatch();
 
   return (
     <li className={s.listItem}>
@@ -12,19 +16,19 @@ const TodoItem = ({id, title, completed, markTodo,editMode, deleteTodo, renameTo
           className={s.checkbox} 
           type="checkbox" 
           checked={completed}
-          onChange={() => markTodo(id)}/>
-        <span className={completed ? s.textCompleted : s.text} onDoubleClick={() => toggleEditMode(id)}>
+          onChange={() => dispatch(markTodo(id))}/>
+
+        <span className={completed ? s.textCompleted : s.text} onDoubleClick={() => dispatch(toggleEditMode(id))}>
+          
           {
             editMode ? 
               <InputEditMode
-                toggleEditMode={toggleEditMode} 
-                renameTodo={renameTodo} 
                 text={title} 
                 id={id}/> :
               title
           }
         </span>
-        <img src={close} alt="close" onClick={() => deleteTodo(id)}/>
+        <img src={close} alt="close" onClick={() => dispatch(deleteTodo(id))}/>
     </li>
   )
 }

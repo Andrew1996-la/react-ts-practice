@@ -7,7 +7,7 @@ import { uniqueId } from '../utils'
 
 import { useAppDispatch, useAppSelector } from '../hooks'
 
-import { addTask } from '../store/todoSlise'
+import { addTask, deleteTodo } from '../store/todoSlise'
 
 import Input from './input/Input'
 import Button from './button/Button'
@@ -36,34 +36,13 @@ const App: React.FC = () => {
         setInputValue('');
     }
 
-    const markTodo = (id: number): void => {
-        // setTodos((prevState: ITodo[]) =>
-        //     prevState.map((todo: ITodo) => (
-        //         todo.id === id ? {...todo, completed: !todo.completed} : todo
-        //     ))
-        // )
-    }
-
-    const deleteTodo = (id: number): void => {
-        // setTodos((prevState: ITodo[]) => 
-        //     prevState.filter((todo: ITodo) => todo.id !== id )
-        // )
-    }
-
-    const toggleEditMode = (id: number): void => {
-        // setTodos((prevState: ITodo[]) =>
-        // prevState.map((todo: ITodo) => (
-        //     todo.id === id ? {...todo, editMode: !todo.editMode} : todo
-        // )))
-    }
-
-    const renameTodo = (id: number, text: string): void => {
+    // const renameTodo = (id: number, text: string): void => {
         // setTodos((prevState: ITodo[]) => 
         //     prevState.map((todo: ITodo) => (
         //         todo.id === id ? {...todo, title: text} : todo
         //     ))
         // )        
-    }
+    // }
 
     return (
         <div className={s.appContainer}>
@@ -73,10 +52,9 @@ const App: React.FC = () => {
             </div>
             <TodoList 
                 todos={todos} 
-                markTodo={markTodo}
-                deleteTodo={deleteTodo}
-                toggleEditMode={toggleEditMode}
-                renameTodo={renameTodo}/>
+                // toggleEditMode={toggleEditMode}
+                // renameTodo={renameTodo}
+                />
         </div>
     )
 }

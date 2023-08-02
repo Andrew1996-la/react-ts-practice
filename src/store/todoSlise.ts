@@ -2,6 +2,7 @@ import {PayloadAction, createSlice} from '@reduxjs/toolkit'
 import {localStorageGetTodo} from '../localstorage'
 import { ITodo } from '../types/data';
 import { uniqueId } from '../utils';
+import { text } from 'stream/consumers';
 
 export interface IInitState {
     todos: ITodo[]
@@ -24,10 +25,24 @@ export const todoSlice = createSlice({
            }
             state.todos.push(newTask);
         },
-        markTodo: (state, action) => {},
-        deleteTodo: (state, action) => {},
-        toggleEditMode: (state, action) => {},
-        renameTodo: (state, action) => {},
+        deleteTodo: (state, action: PayloadAction<number>) => {
+            state.todos = state.todos.filter((todo: ITodo) => todo.id !== action.payload )
+        },
+        markTodo: (state, action: PayloadAction<number>) => {
+            state.todos = state.todos.map((todo: ITodo) => (
+                todo.id === action.payload ? {...todo, completed: !todo.completed} : todo
+            ))
+        },
+        toggleEditMode: (state, action: PayloadAction<number>) => {
+            state.todos = state.todos.map((todo: ITodo) => (
+                todo.id === action.payload ? {...todo, editMode: !todo.editMode} : todo
+            ))
+        },
+        renameTodo: (state, action:PayloadAction<{id: number, newTile:string}>) => {
+            state.todos = state.todos.map((todo: ITodo) => (
+                todo.id === action.payload.id ? {...todo, title: action.payload.newTile } : todo
+            ))
+        },
     }
 })
 
