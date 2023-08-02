@@ -1,9 +1,11 @@
-import { ITodoListProps } from "../../types/props"
+import { useAppSelector } from "../../hooks";
 import TodoItem from "../todoItem/TodoItem"
 
 import s from './todoList.module.css';
 
-const TodoList = ({todos}: ITodoListProps) => {
+const TodoList = () => {
+
+    const todos = useAppSelector(state => state.todo.todos)
 
     const todosElements = todos.map(todo => (
         <TodoItem 

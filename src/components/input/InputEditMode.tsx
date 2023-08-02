@@ -1,4 +1,4 @@
-import {useRef, useEffect} from 'react'
+import { useRef, useEffect } from 'react'
  
 import s from './inputEditMode.module.css'
 

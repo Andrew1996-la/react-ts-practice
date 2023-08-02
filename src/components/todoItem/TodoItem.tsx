@@ -19,7 +19,6 @@ const TodoItem = ({id, title, completed,editMode}: ITodoItemProps) => {
           onChange={() => dispatch(markTodo(id))}/>
 
         <span className={completed ? s.textCompleted : s.text} onDoubleClick={() => dispatch(toggleEditMode(id))}>
-          
           {
             editMode ? 
               <InputEditMode
@@ -28,6 +27,7 @@ const TodoItem = ({id, title, completed,editMode}: ITodoItemProps) => {
               title
           }
         </span>
+
         <img src={close} alt="close" onClick={() => dispatch(deleteTodo(id))}/>
     </li>
   )
