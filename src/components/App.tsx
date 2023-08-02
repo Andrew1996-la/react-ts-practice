@@ -30,7 +30,6 @@ const App: React.FC = () => {
         setInputValue('');
     }
 
-
     return (
         <div className={s.appContainer}>
             <div className={s.controlPanel}>

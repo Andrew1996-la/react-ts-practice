@@ -3,7 +3,7 @@ import TodoItem from "../todoItem/TodoItem"
 
 import s from './todoList.module.css';
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
 
     const todos = useAppSelector(state => state.todo.todos)
 

@@ -6,7 +6,7 @@ import close from '../../img/close.png';
 import { useAppDispatch } from "../../hooks";
 import { deleteTodo, markTodo, toggleEditMode } from "../../store/todoSlise";
 
-const TodoItem = ({id, title, completed,editMode}: ITodoItemProps) => {  
+const TodoItem: React.FC<ITodoItemProps> = ({id, title, completed,editMode}) => {  
 
   const dispatch = useAppDispatch();
 

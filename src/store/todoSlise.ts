@@ -3,11 +3,11 @@ import {localStorageGetTodo} from '../localstorage'
 import { ITodo } from '../types/data';
 import { uniqueId } from '../utils';
 
-export interface IInitState {
+export interface IState {
     todos: ITodo[]
 }
 
-const initialState: IInitState = {
+const initialState: IState = {
     todos: localStorageGetTodo('todos') || []
 }; 
 
@@ -15,7 +15,7 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        addTask: (state, action: PayloadAction<string>) => {
+        addTask: (state: IState, action: PayloadAction<string>) => {
            const newTask = {
             id: uniqueId(),
             title: action.payload,
@@ -24,20 +24,20 @@ export const todoSlice = createSlice({
            }
             state.todos.push(newTask);
         },
-        deleteTodo: (state, action: PayloadAction<number>) => {
+        deleteTodo: (state: IState, action: PayloadAction<number>) => {
             state.todos = state.todos.filter((todo: ITodo) => todo.id !== action.payload )
         },
-        markTodo: (state, action: PayloadAction<number>) => {
+        markTodo: (state: IState, action: PayloadAction<number>) => {
             state.todos = state.todos.map((todo: ITodo) => (
                 todo.id === action.payload ? {...todo, completed: !todo.completed} : todo
             ))
         },
-        toggleEditMode: (state, action: PayloadAction<number>) => {
+        toggleEditMode: (state: IState, action: PayloadAction<number>) => {
             state.todos = state.todos.map((todo: ITodo) => (
                 todo.id === action.payload ? {...todo, editMode: !todo.editMode} : todo
             ))
         },
-        renameTodo: (state, action:PayloadAction<{id: number, newTile:string}>) => {
+        renameTodo: (state: IState, action:PayloadAction<{id: number, newTile:string}>) => {
             state.todos = state.todos.map((todo: ITodo) => (
                 todo.id === action.payload.id ? {...todo, title: action.payload.newTile } : todo
             ))
@@ -45,5 +45,5 @@ export const todoSlice = createSlice({
     }
 })
 
-export const {addTask, markTodo, deleteTodo, toggleEditMode, renameTodo} = todoSlice.actions
-export default todoSlice.reducer
+export const {addTask, markTodo, deleteTodo, toggleEditMode, renameTodo} = todoSlice.actions;
+export default todoSlice.reducer;

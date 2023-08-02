@@ -6,7 +6,7 @@ import { IInputEditMode } from '../../types/props'
 import { useAppDispatch } from '../../hooks'
 import { toggleEditMode, renameTodo } from '../../store/todoSlise'
 
-const InputEditMode = ({text, id}: IInputEditMode) => {
+const InputEditMode: React.FC<IInputEditMode> = ({text, id}) => {
 
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);

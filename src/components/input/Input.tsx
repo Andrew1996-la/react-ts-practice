@@ -4,7 +4,7 @@ import { IInputProps } from "../../types/props"
 
 import s from './input.module.css'
 
-const Input = ({value, handleInput, addTodo}: IInputProps) => {
+const Input: React.FC<IInputProps> = ({value, handleInput, addTodo}) => {
     
     const inputRef = useRef<HTMLInputElement>(null)
 
