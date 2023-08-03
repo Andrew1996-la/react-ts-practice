@@ -7,6 +7,7 @@ import { addTask } from '../store/todoSlise'
 import Input from './input/Input'
 import Button from './button/Button'
 import TodoList from './todoList/TodoList'
+import ControlPanel from './controlPanel/ControlPanel'
 
 import s from './app.module.css';
 
@@ -32,10 +33,10 @@ const App: React.FC = () => {
 
     return (
         <div className={s.appContainer}>
-            <div className={s.controlPanel}>
+            <ControlPanel>
                 <Input value={inputValue} handleInput={handleInput} addTodo={addTodo}/>
-                <Button text='Добавить' addTodo={addTodo}/>
-            </div>
+                <Button addTodo={addTodo}>Добавить</Button>
+            </ControlPanel>
             <TodoList/>
         </div>
     )

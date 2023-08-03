@@ -2,9 +2,9 @@ import { IButtonProps } from "../../types/props"
 
 import s from './button.module.css'
 
-const Button: React.FC<IButtonProps> = ({text, addTodo}) => {
+const Button = ({addTodo, children}: IButtonProps) => {
   return (
-    <button className={s.addButton} onClick={addTodo}>{text}</button>
+    <button className={s.addButton} onClick={addTodo}>{children}</button>
   )
 }
 

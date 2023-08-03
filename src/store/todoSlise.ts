@@ -16,6 +16,7 @@ export const todoSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state: IState, action: PayloadAction<string>) => {
+            if(action.payload.trim() === '') return
            const newTask = {
             id: uniqueId(),
             title: action.payload,
