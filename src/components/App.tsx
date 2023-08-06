@@ -5,9 +5,10 @@ import { localStorageSetTodo } from '../localstorage'
 import { addTask } from '../store/todoSlise'
 
 import Input from './input/Input'
-import Button from './button/Button'
+import { ButtonStandart } from '../ui/buttons/Button'
 import TodoList from './todoList/TodoList'
 import ControlPanel from './controlPanel/ControlPanel'
+import LoginForm from './loginForm/LoginForm'
 
 import s from './app.module.css';
 
@@ -33,12 +34,12 @@ const App: React.FC = () => {
 
     return (
         <div className={s.appContainer}>
-            {/* <LoginForm /> */}
-            <ControlPanel>
+            <LoginForm />
+            {/* <ControlPanel>
                 <Input value={inputValue} handleInput={handleInput} addTodo={addTodo}/>
-                <Button addTodo={addTodo}>Добавить</Button>
+                <ButtonStandart addTodo={addTodo}>Добавить</ButtonStandart>
             </ControlPanel>
-            <TodoList/>
+            <TodoList/> */}
         </div>
     )
 }

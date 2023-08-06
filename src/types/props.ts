@@ -1,7 +1,7 @@
 import {ReactNode} from "react"
 
 export interface IButtonProps {
-    addTodo: () => void,
+    addTodo?: () => void,
     children: string,
 }
 
@@ -25,4 +25,9 @@ export interface IInputEditMode {
 
 export interface IControlPanel {
     children: ReactNode,
+}
+
+export interface IInputStandart {
+    type: string,
+    placeholder: string
 }

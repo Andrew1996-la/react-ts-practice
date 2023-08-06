@@ -3,6 +3,7 @@ import {useEffect, useRef} from 'react'
 import { IInputProps } from "../../types/props"
 
 import s from './input.module.css'
+import { InputStandart } from '../../ui/inputs/input'
 
 const Input: React.FC<IInputProps> = ({value, handleInput, addTodo}) => {
     
