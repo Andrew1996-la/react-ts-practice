@@ -33,6 +33,7 @@ const App: React.FC = () => {
 
     return (
         <div className={s.appContainer}>
+            {/* <LoginForm /> */}
             <ControlPanel>
                 <Input value={inputValue} handleInput={handleInput} addTodo={addTodo}/>
                 <Button addTodo={addTodo}>Добавить</Button>
