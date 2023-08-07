@@ -1,9 +1,13 @@
 .input {
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
-    width: 100%;
-    font-size: 18px;
-    letter-spacing: 1px;
-  }
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  width: 100%;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.showPassword {
+
+}
   
