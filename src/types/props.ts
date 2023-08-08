@@ -31,3 +31,7 @@ export interface IInputStandart {
     type: string,
     placeholder: string
 }
+
+export interface IInputPassword extends IInputStandart {
+    
+}
