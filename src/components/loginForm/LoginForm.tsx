@@ -7,14 +7,8 @@ const LoginForm = () => {
   return (
       <form className={s.loginForm} >
         <h2 className={s.greeting}>Добро пожаловть!</h2> 
-          <label>
             <InputStandart type="text" placeholder="введите логин" />
-          </label>
-
-          <label>
             <InputStandart type="password" placeholder="введите пароль" />
-          </label>
-
           <ButtonStandart>Login</ButtonStandart>
       </form>
   )
