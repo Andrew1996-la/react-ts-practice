@@ -1,0 +1,12 @@
+.registrationForm {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.registration {
+  align-self: center;
+  color: gray;
+}
