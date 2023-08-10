@@ -1,37 +1,34 @@
-import { ITodoItemProps } from "../../types/props"
-import InputEditMode from "../input/InputEditMode";
+import { ITodoItemProps } from '../../types/props';
+import InputEditMode from '../input/InputEditMode';
 
 import s from './todoItem.module.css';
 import close from '../../img/close.png';
-import { useAppDispatch } from "../../hooks";
-import { deleteTodo, markTodo, toggleEditMode } from "../../store/todoSlise";
-import React from "react";
+import { useAppDispatch } from '../../hooks';
+import { deleteTodo, markTodo, toggleEditMode } from '../../store/todoSlise';
+import React from 'react';
 
-const TodoItem: React.FC<ITodoItemProps> = ({id, title, completed,editMode}) => {  
+const TodoItem: React.FC<ITodoItemProps> = ({ id, title, completed, editMode }) => {
+    const dispatch = useAppDispatch();
 
-  const dispatch = useAppDispatch();
+    return (
+        <li className={s.listItem}>
+            <input
+                className={s.checkbox}
+                type='checkbox'
+                checked={completed}
+                onChange={() => dispatch(markTodo(id))}
+            />
 
-  return (
-    <li className={s.listItem}>
-        <input 
-          className={s.checkbox} 
-          type="checkbox" 
-          checked={completed}
-          onChange={() => dispatch(markTodo(id))}/>
+            <span
+                className={completed ? s.textCompleted : s.text}
+                onDoubleClick={() => dispatch(toggleEditMode(id))}
+            >
+                {editMode ? <InputEditMode text={title} id={id} /> : title}
+            </span>
 
-        <span className={completed ? s.textCompleted : s.text} onDoubleClick={() => dispatch(toggleEditMode(id))}>
-          {
-            editMode ? 
-              <InputEditMode
-                text={title} 
-                id={id}/> :
-              title
-          }
-        </span>
+            <img src={close} alt='close' onClick={() => dispatch(deleteTodo(id))} />
+        </li>
+    );
+};
 
-        <img src={close} alt="close" onClick={() => dispatch(deleteTodo(id))}/>
-    </li>
-  )
-}
-
-export default React.memo(TodoItem)
+export default React.memo(TodoItem);

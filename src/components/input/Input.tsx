@@ -1,35 +1,34 @@
-import {useEffect, useRef} from 'react'
+import { useEffect, useRef } from 'react';
 
-import { IInputProps } from "../../types/props"
+import { IInputProps } from '../../types/props';
 
-import s from './input.module.css'
-import { InputStandart } from '../../ui/inputs/input'
+import s from './input.module.css';
+import { InputStandart } from '../../ui/inputs/input';
 
-const Input: React.FC<IInputProps> = ({value, handleInput, addTodo}) => {
-    
-    const inputRef = useRef<HTMLInputElement>(null)
+const Input: React.FC<IInputProps> = ({ value, handleInput, addTodo }) => {
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         inputRef.current?.focus();
-    }, [])
+    }, []);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if(e.key !== 'Enter') return
-        addTodo()
-    } 
+        if (e.key !== 'Enter') return;
+        addTodo();
+    };
 
-    
     return (
         <>
             <input
-                ref={inputRef} 
-                placeholder="Добавить новую задачу"
+                ref={inputRef}
+                placeholder='Добавить новую задачу'
                 className={s.input}
-                value={value} 
+                value={value}
                 onKeyDown={handleKeyDown}
-                onChange={(e) => handleInput(e)}/>
+                onChange={(e) => handleInput(e)}
+            />
         </>
-    )
-}
+    );
+};
 
-export default Input
+export default Input;

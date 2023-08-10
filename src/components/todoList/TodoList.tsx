@@ -1,26 +1,22 @@
-import { useAppSelector } from "../../hooks";
-import TodoItem from "../todoItem/TodoItem"
+import { useAppSelector } from '../../hooks';
+import TodoItem from '../todoItem/TodoItem';
 
 import s from './todoList.module.css';
 
 const TodoList: React.FC = () => {
+    const todos = useAppSelector((state) => state.todo.todos);
 
-    const todos = useAppSelector(state => state.todo.todos)
-
-    const todosElements = todos.map(todo => (
-        <TodoItem 
-            key={todo.id} 
+    const todosElements = todos.map((todo) => (
+        <TodoItem
+            key={todo.id}
             id={todo.id}
-            title={todo.title} 
+            title={todo.title}
             completed={todo.completed}
-            editMode = {todo.editMode}/>
-    ))
-  
-    return (
-        <ul className={s.list}>
-            {todosElements}
-        </ul>
-    )
-}
+            editMode={todo.editMode}
+        />
+    ));
 
-export default TodoList
+    return <ul className={s.list}>{todosElements}</ul>;
+};
+
+export default TodoList;
