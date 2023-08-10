@@ -10,3 +10,13 @@
   align-self: center;
   color: gray;
 }
+
+.btnPanel {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
+}
+
+.link {
+  display: contents;
+}

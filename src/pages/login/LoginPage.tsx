@@ -1,5 +1,6 @@
-import { InputStandart, InputPassword } from "../../ui/inputs/input"
-import { ButtonStandart } from "../../ui/buttons/Button"
+import { InputStandart, InputPassword } from "../../ui/inputs/input";
+import { ButtonStandart } from "../../ui/buttons/Button";
+import {Link} from 'react-router-dom';
 
 import s from './loginPage.module.css'
 
@@ -10,7 +11,14 @@ const LoginPage = () => {
         <h2 className={s.greeting}>Добро пожаловть!</h2> 
         <InputStandart type="text" placeholder="введите логин" />
         <InputPassword type="password" placeholder="введите пароль"/>
-        <ButtonStandart>Login</ButtonStandart>
+        <div className={s.btnPanel}>
+          <Link className={s.link} to='/'>
+            <ButtonStandart>Login</ButtonStandart>
+          </Link>
+          <Link className={s.link} to='/registration'>
+            <ButtonStandart>Registration</ButtonStandart>
+          </Link>
+        </div>
       </form>
   )
 }
