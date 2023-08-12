@@ -3,9 +3,13 @@
     "tabWidth": 4,
     "printWidth": 100,
     "singleQuote": true,
-    "trailingComma": "all",
+    "trailingComma": "es5",
     "jsxSingleQuote": true,
     "bracketSpacing": true,
     "useTabs": false,
-    "endOfLine": "auto"
+    "endOfLine": "auto",
+
+    "importOrder": ["^components/(.*)$", "^[./]"],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
 }
