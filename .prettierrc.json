@@ -9,7 +9,7 @@
     "useTabs": false,
     "endOfLine": "auto",
 
-    "importOrder": ["^components/(.*)$", "^[./]"],
+    "importOrder": ["^@/(.*)$", "<THIRD_PARTY_MODULES>", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
     "importOrderSeparation": true,
     "importOrderSortSpecifiers": true
 }

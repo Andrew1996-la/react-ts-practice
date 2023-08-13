@@ -1,10 +1,9 @@
+import { toggleEditMode, renameTodo } from '../../store/todoSlise';
 import { useRef, useEffect } from 'react';
 
-import s from './inputEditMode.module.css';
-
 import { IInputEditMode } from '../../types/props';
+import s from './inputEditMode.module.css';
 import { useAppDispatch } from '../../hooks';
-import { toggleEditMode, renameTodo } from '../../store/todoSlise';
 
 const InputEditMode: React.FC<IInputEditMode> = ({ text, id }) => {
     const dispatch = useAppDispatch();
@@ -22,10 +21,10 @@ const InputEditMode: React.FC<IInputEditMode> = ({ text, id }) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [inputRef]);
+    }, [inputRef, id, dispatch]);
 
     const handleRename = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let newTile = e.target.value;
+        const newTile = e.target.value;
         dispatch(renameTodo({ id, newTile }));
     };
 
