@@ -1,10 +1,14 @@
 import { useState } from 'react';
 
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import s from './input.module.css';
 import { IInputPassword, IInputStandart } from '../../types/props';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import s from './input.module.css';
+
+
+
 
 const InputStandart: React.FC<IInputStandart> = ({ type, placeholder }) => {
     return (

@@ -1,6 +1,8 @@
 import { configureStore, createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
+
 import todoSlise, { addTask, deleteTodo, markTodo, renameTodo, toggleEditMode } from './todoSlise';
 import { localStorageSetTodo } from '../localstorage';
+
 
 export const listenerMiddleware = createListenerMiddleware();
 const actions = [addTask, markTodo, deleteTodo, toggleEditMode, renameTodo];

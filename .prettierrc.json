@@ -7,9 +7,5 @@
     "jsxSingleQuote": true,
     "bracketSpacing": true,
     "useTabs": false,
-    "endOfLine": "auto",
-
-    "importOrder": ["^@/(.*)$", "<THIRD_PARTY_MODULES>", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
-    "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true
+    "endOfLine": "auto"
 }

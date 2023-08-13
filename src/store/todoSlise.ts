@@ -1,7 +1,9 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
 import { localStorageGetTodo } from '../localstorage';
 import { ITodo } from '../types/data';
 import { uniqueId } from '../utils';
+
 
 export interface IState {
     todos: ITodo[];

@@ -1,10 +1,11 @@
-import MainPage from '../pages/main/MainPage';
-import RegistrationPage from '../pages/registration/RegistrationPage';
-import LoginPage from '../pages/login/LoginPage';
-
 import { Routes, Route } from 'react-router-dom';
 
 import s from './app.module.css';
+import LoginPage from '../pages/login/LoginPage';
+import MainPage from '../pages/main/MainPage';
+import RegistrationPage from '../pages/registration/RegistrationPage';
+
+
 
 const App: React.FC = () => {
     return (

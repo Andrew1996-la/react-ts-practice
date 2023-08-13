@@ -1,11 +1,12 @@
+import React from 'react';
+
+import s from './todoItem.module.css';
+import { useAppDispatch } from '../../hooks';
+import close from '../../img/close.png';
+import { deleteTodo, markTodo, toggleEditMode } from '../../store/todoSlise';
 import { ITodoItemProps } from '../../types/props';
 import InputEditMode from '../input/InputEditMode';
 
-import s from './todoItem.module.css';
-import close from '../../img/close.png';
-import { useAppDispatch } from '../../hooks';
-import { deleteTodo, markTodo, toggleEditMode } from '../../store/todoSlise';
-import React from 'react';
 
 const TodoItem: React.FC<ITodoItemProps> = ({ id, title, completed, editMode }) => {
     const dispatch = useAppDispatch();

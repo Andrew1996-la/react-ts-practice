@@ -1,5 +1,5 @@
-import { IButtonProps } from '../../types/props';
 import s from './button.module.css';
+import { IButtonProps } from '../../types/props';
 
 const ButtonStandart: React.FC<IButtonProps> = ({ addTodo, children }) => {
     return (

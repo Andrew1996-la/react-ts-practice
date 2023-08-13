@@ -1,9 +1,9 @@
-import { toggleEditMode, renameTodo } from '../../store/todoSlise';
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
+import { useAppDispatch } from '../../hooks';
+import { renameTodo, toggleEditMode } from '../../store/todoSlise';
 import { IInputEditMode } from '../../types/props';
 import s from './inputEditMode.module.css';
-import { useAppDispatch } from '../../hooks';
 
 const InputEditMode: React.FC<IInputEditMode> = ({ text, id }) => {
     const dispatch = useAppDispatch();

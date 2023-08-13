@@ -1,8 +1,10 @@
-import { ButtonStandart } from '../../ui/buttons/Button';
-import { InputStandart, InputPassword } from '../../ui/inputs/input';
 import { Link } from 'react-router-dom';
 
 import s from './registrationPage.module.css';
+import { ButtonStandart } from '../../ui/buttons/Button';
+import { InputStandart, InputPassword } from '../../ui/inputs/input';
+
+
 
 const RegistrationPage = () => {
     return (

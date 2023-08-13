@@ -1,8 +1,10 @@
-import { InputStandart, InputPassword } from '../../ui/inputs/input';
-import { ButtonStandart } from '../../ui/buttons/Button';
 import { Link } from 'react-router-dom';
 
 import s from './loginPage.module.css';
+import { ButtonStandart } from '../../ui/buttons/Button';
+import { InputStandart, InputPassword } from '../../ui/inputs/input';
+
+
 
 const LoginPage = () => {
     return (

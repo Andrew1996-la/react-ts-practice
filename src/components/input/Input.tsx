@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 
+import s from './input.module.css';
 import { IInputProps } from '../../types/props';
 
-import s from './input.module.css';
+
+
 
 const Input: React.FC<IInputProps> = ({ value, handleInput, addTodo }) => {
     const inputRef = useRef<HTMLInputElement>(null);
