@@ -2,6 +2,7 @@ import { configureStore, createListenerMiddleware, isAnyOf } from '@reduxjs/tool
 
 import todoSlise, { addTask, deleteTodo, markTodo, renameTodo, toggleEditMode } from './todoSlise';
 import { localStorageSetTodo } from '../localstorage';
+import userSlice from './userSlice';
 
 
 export const listenerMiddleware = createListenerMiddleware();
@@ -18,6 +19,7 @@ listenerMiddleware.startListening({
 const store = configureStore({
     reducer: {
         todo: todoSlise,
+        user: userSlice,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(listenerMiddleware.middleware),
