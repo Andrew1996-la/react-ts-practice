@@ -3,22 +3,34 @@ import { useState } from 'react';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import s from './input.module.css';
 import { IInputPassword, IInputStandart } from '../../types/props';
+import s from './input.module.css';
 
-
-
-
-
-const InputStandart: React.FC<IInputStandart> = ({ type, placeholder }) => {
+const InputStandart: React.FC<IInputStandart> = ({
+    type,
+    placeholder,
+    handleUserInfo,
+    dataAttribute,
+}) => {
     return (
         <label className={s.label}>
-            <input className={s.input} type={type} placeholder={placeholder} />
+            <input
+                data-type={dataAttribute}
+                className={s.input}
+                type={type}
+                placeholder={placeholder}
+                onChange={handleUserInfo}
+            />
         </label>
     );
 };
 
-const InputPassword: React.FC<IInputPassword> = ({ type, placeholder }) => {
+const InputPassword: React.FC<IInputPassword> = ({
+    type,
+    placeholder,
+    handleUserInfo,
+    dataAttribute,
+}) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const togglePasswordVisibility = (): void => {
@@ -34,13 +46,15 @@ const InputPassword: React.FC<IInputPassword> = ({ type, placeholder }) => {
     return (
         <label className={s.label}>
             <input
+                data-type={dataAttribute}
                 className={s.input}
                 type={showPassword ? 'text' : type}
                 placeholder={placeholder}
+                onChange={handleUserInfo}
             />
             {iconView}
         </label>
     );
 };
 
-export { InputStandart, InputPassword };
+export { InputPassword, InputStandart };
