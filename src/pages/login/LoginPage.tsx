@@ -6,7 +6,6 @@ import { InputStandart, InputPassword } from '../../ui/inputs/input';
 import { useState } from 'react';
 
 const LoginPage = () => {
-    
     const [login, setLogin] = useState<string | null>(null);
     const [password, setPassword] = useState<string | null>(null);
 
