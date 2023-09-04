@@ -14,7 +14,7 @@ const LoginPage = () => {
         typeInput === 'login' ? setLogin(e.target.value) : setPassword(e.target.value);
     };
 
-    return (
+    return ( 
         <form className={s.loginForm}>
             <h2 className={s.greeting}>Добро пожаловть!</h2>
             <InputStandart
