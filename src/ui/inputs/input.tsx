@@ -6,15 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IInputPassword, IInputStandart } from '../../types/props';
 import s from './input.module.css';
 
-const InputStandart: React.FC<IInputStandart> = ({ type, placeholder }) => {
+const InputStandart: React.FC<IInputStandart> = ({ type, placeholder, handleGetUserInfo }) => {
     return (
         <label className={s.label}>
-            <input className={s.input} type={type} placeholder={placeholder} />
+            <input
+                data-type='login'
+                className={s.input}
+                type={type}
+                placeholder={placeholder}
+                onChange={handleGetUserInfo}
+            />
         </label>
     );
 };
 
-const InputPassword: React.FC<IInputPassword> = ({ type, placeholder }) => {
+const InputPassword: React.FC<IInputPassword> = ({ type, placeholder, handleGetUserInfo }) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const togglePasswordVisibility = (): void => {
@@ -30,9 +36,11 @@ const InputPassword: React.FC<IInputPassword> = ({ type, placeholder }) => {
     return (
         <label className={s.label}>
             <input
+                data-type='password'
                 className={s.input}
                 type={showPassword ? 'text' : type}
                 placeholder={placeholder}
+                onChange={handleGetUserInfo}
             />
             {iconView}
         </label>

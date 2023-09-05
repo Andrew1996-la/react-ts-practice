@@ -30,6 +30,7 @@ export interface IControlPanel {
 export interface IInputStandart {
     type: string;
     placeholder: string;
+    handleGetUserInfo?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface IForm {
