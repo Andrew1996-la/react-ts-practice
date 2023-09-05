@@ -30,8 +30,10 @@ export interface IControlPanel {
 export interface IInputStandart {
     type: string;
     placeholder: string;
-    dataAttribute?: string,
-    handleUserInfo?: (e:React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface IForm {
+    title: string
 }
 
 export interface IInputPassword extends IInputStandart {}
