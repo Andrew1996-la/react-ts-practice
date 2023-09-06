@@ -21,3 +21,19 @@
     display: contents;
   }
   
+  .buttonStandart {
+    width: auto;
+    padding: 14px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color, 0.2s;
+  }
+  
+  .buttonStandart:hover {
+    background-color: antiquewhite;
+    transition: background-color, 0.2s;
+  }  
