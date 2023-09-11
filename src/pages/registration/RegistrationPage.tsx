@@ -1,14 +1,31 @@
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, getIdToken } from 'firebase/auth';
 import Form from '../../components/form/Form';
+import { useAppDispatch } from '../../hooks';
+import { createUser } from '../../store/userSlice';
 
 const RegistrationPage = () => {
+    const dispatch = useAppDispatch();
 
     const handleRegister = (email: string, password: string) => {
         const auth = getAuth();
+        let userEmail: string | null;
+        let userUid: string | null;
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in
                 const user = userCredential.user;
+                const { email, uid } = user;
+                userEmail = email;
+                userUid = uid;
+                return getIdToken(user);
+            })
+            .then((idToken) => {
+                dispatch(
+                    createUser({
+                        email: userEmail,
+                        token: idToken,
+                        id: userUid,
+                    })
+                );
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -16,7 +33,12 @@ const RegistrationPage = () => {
             });
     };
 
-    return <Form title='Registration' handleRegister={(email, password) => handleRegister(email, password)}/>;
+    return (
+        <Form
+            title='Registration'
+            handleRegister={(email, password) => handleRegister(email, password)}
+        />
+    );
 };
 
 export default RegistrationPage;
