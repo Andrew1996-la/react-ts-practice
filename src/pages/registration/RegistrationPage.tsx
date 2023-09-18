@@ -2,9 +2,11 @@ import { createUserWithEmailAndPassword, getAuth, getIdToken } from 'firebase/au
 import Form from '../../components/form/Form';
 import { useAppDispatch } from '../../hooks';
 import { createUser } from '../../store/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationPage = () => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const handleRegister = (email: string, password: string) => {
         const auth = getAuth();
@@ -26,6 +28,7 @@ const RegistrationPage = () => {
                         id: userUid,
                     })
                 );
+                navigate('/');
             })
             .catch((error) => {
                 const errorCode = error.code;

@@ -20,9 +20,9 @@ const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
     };
 
     const loginUser = () => {
-        if(!handleLogin) return;
+        if (!handleLogin) return;
         handleLogin(login, password);
-    }
+    };
 
     return (
         <form className={s.registrationForm}>
@@ -39,7 +39,9 @@ const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
             />
             <div className={s.btnPanel}>
                 <Link className={s.link} to='/login'>
-                    <button className={s.buttonStandart} onClick={loginUser}>Login</button>
+                    <button className={s.buttonStandart} onClick={loginUser}>
+                        Login
+                    </button>
                 </Link>
                 <Link className={s.link} to='/registration'>
                     <button className={s.buttonStandart} onClick={registerUser}>
