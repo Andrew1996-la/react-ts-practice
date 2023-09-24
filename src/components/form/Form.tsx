@@ -4,6 +4,7 @@ import { InputPassword, InputStandart } from '../../ui/inputs/input';
 import s from './form.module.css';
 
 import { Link } from 'react-router-dom';
+import { ButtonStandart } from '../../ui/buttons/Button';
 
 const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
     const [login, setLogin] = useState<string>('');
@@ -39,14 +40,10 @@ const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
             />
             <div className={s.btnPanel}>
                 <Link className={s.link} to='/login'>
-                    <button className={s.buttonStandart} onClick={loginUser}>
-                        Login
-                    </button>
+                    <ButtonStandart callback={loginUser}>Login</ButtonStandart>
                 </Link>
                 <Link className={s.link} to='/registration'>
-                    <button className={s.buttonStandart} onClick={registerUser}>
-                        Registration
-                    </button>
+                    <ButtonStandart callback={registerUser}>Registration</ButtonStandart>
                 </Link>
             </div>
         </form>

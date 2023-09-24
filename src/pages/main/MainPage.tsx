@@ -1,11 +1,15 @@
+import { redirect } from 'react-router-dom';
 import ControlPanel from '../../components/controlPanel/ControlPanel';
 import TodoList from '../../components/todoList/TodoList';
 
 const MainPage: React.FC = () => {
+    // return redirect('/login');
+
     return (
         <>
             <ControlPanel />
             <TodoList />
+            
         </>
     );
 };

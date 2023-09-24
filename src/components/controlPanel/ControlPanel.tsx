@@ -22,7 +22,7 @@ const ControlPanel: React.FC = () => {
     return (
         <div className={s.controlPanel}>
             <Input value={inputValue} handleInput={handleInput} addTodo={addTodo} />
-            <ButtonStandart addTodo={addTodo}>Добавить</ButtonStandart>
+            <ButtonStandart callback={addTodo}>Добавить</ButtonStandart>
         </div>
     );
 };

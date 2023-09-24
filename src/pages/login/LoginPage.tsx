@@ -8,7 +8,11 @@ const LoginPage = () => {
     const handleLogin = (email: string, password: string) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-            .then(() => navigate('/'))
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                navigate('/');
+            })
             .catch((error) => {
                 alert('invalid user');
                 const errorCode = error.code;

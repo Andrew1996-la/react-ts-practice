@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface IButtonProps {
-    addTodo?: () => void;
+    callback?: () => void;
     children: string;
 }
 
