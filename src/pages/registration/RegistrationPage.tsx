@@ -23,6 +23,7 @@ const RegistrationPage = () => {
             .then((idToken) => {
                 dispatch(
                     createUser({
+                        isAuth: true,
                         email: userEmail,
                         token: idToken,
                         id: userUid,

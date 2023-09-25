@@ -11,3 +11,7 @@ export const localStorageGetTodo = (key: string) => {
         return null;
     }
 };
+
+export const localStorageSetUser = () => {
+    alert('its works');
+};

@@ -1,0 +1,7 @@
+.userName {
+    font-size: 18px;
+    letter-spacing: 1px;
+    width: 80%;
+    word-wrap: break-word;
+    cursor: pointer;
+}
