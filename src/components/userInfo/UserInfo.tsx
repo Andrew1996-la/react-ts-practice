@@ -1,10 +1,13 @@
-import { useAppSelector } from '../../hooks';
-
 const UserInfo = () => {
-    const userName: null | string = useAppSelector((store) => store.user.email);
+    const storedUser: string | null = localStorage.getItem('user');
+    let userInfo = null;
+    if (storedUser) {
+        userInfo = JSON.parse(storedUser);
+    }
+
     return (
         <>
-         <div>{userName}</div>
+            <div> {userInfo ? `Аккаунт: ${userInfo.email}` : null} </div>
         </>
     );
 };

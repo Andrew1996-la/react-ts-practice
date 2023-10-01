@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Form from '../../components/form/Form';
 import { useAppDispatch } from '../../hooks';
 import { createUser } from '../../store/userSlice';
-import { localStorageSetUser } from '../../localstorage';
 
 const LoginPage = () => {
     const navigate = useNavigate();
