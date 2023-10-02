@@ -5,8 +5,6 @@ import LoginPage from '../pages/login/LoginPage';
 import MainPage from '../pages/main/MainPage';
 import RegistrationPage from '../pages/registration/RegistrationPage';
 
-
-
 const App: React.FC = () => {
     return (
         <div className={s.appContainer}>

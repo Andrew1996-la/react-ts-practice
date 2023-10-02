@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -12,9 +12,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const isAuthUser = () => {
+export const isAuthUser = (): void => {
     const auth = getAuth();
-    auth.onAuthStateChanged(function (user: any) {
+    onAuthStateChanged(auth, (user: any): void => {
         if (user) {
             localStorage.setItem('user', JSON.stringify(user));
             // Пользователь вошел в систему

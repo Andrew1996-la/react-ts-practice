@@ -15,12 +15,12 @@ const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
         inputType === 'login' ? setLogin(e.target.value) : setPassword(e.target.value);
     };
 
-    const registerUser = () => {
+    const registerUser = (): void => {
         if (!handleRegister) return;
         handleRegister(login, password);
     };
 
-    const loginUser = () => {
+    const loginUser = (): void => {
         if (!handleLogin) return;
         handleLogin(login, password);
     };
