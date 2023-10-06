@@ -6,10 +6,9 @@ import s from './form.module.css';
 import { Link } from 'react-router-dom';
 import { ButtonStandart } from '../../ui/buttons/Button';
 
-const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
+const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin, errorMessage }) => {
     const [login, setLogin] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [warning, setWarning] = useState<boolean>(false);
 
     const handleGetUserInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputType = e.target.dataset.type;
@@ -39,6 +38,7 @@ const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
                 placeholder='введите пароль'
                 handleGetUserInfo={(e) => handleGetUserInfo(e)}
             />
+            <span className={s.error}>{errorMessage}</span>
             <div className={s.btnPanel}>
                 <Link className={s.link} to='/login'>
                     <ButtonStandart callback={loginUser}>Login</ButtonStandart>

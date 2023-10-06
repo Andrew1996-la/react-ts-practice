@@ -1,7 +1,7 @@
 import { LoginRegisterError } from './enams';
 export const uniqueId = () => Date.now() * Math.random();
 
-export const handlerError = (error: string) => {
+export const handlerError = (error: string): string | null => {
     switch (error) {
         case LoginRegisterError.INVALID_EMAIL:
             return 'Введенный email имеет неправильный формат';
@@ -17,5 +17,7 @@ export const handlerError = (error: string) => {
             return 'Пользователь с указанным email не был найден';
         case LoginRegisterError.WRONG_PASSWORD:
             return 'Неправильный пароль';
+        default:
+            return null;
     }
 };

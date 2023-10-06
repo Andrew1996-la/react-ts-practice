@@ -37,6 +37,7 @@ export interface IForm {
     title: string;
     handleRegister?: (email: string, password: string) => void;
     handleLogin?: (email: string, password: string) => void;
+    errorMessage?: string | null;
 }
 
 export interface IInputPassword extends IInputStandart {}
