@@ -9,6 +9,7 @@ import { ButtonStandart } from '../../ui/buttons/Button';
 const Form: React.FC<IForm> = ({ title, handleRegister, handleLogin }) => {
     const [login, setLogin] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [warning, setWarning] = useState<boolean>(false);
 
     const handleGetUserInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputType = e.target.dataset.type;

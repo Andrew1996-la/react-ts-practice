@@ -1,6 +1,7 @@
-import { ButtonStandart } from '../../ui/buttons/Button';
 import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import s from './userInfo.module.css';
+import logoutIcon from '../../img/logout.svg';
 
 const UserInfo = () => {
     const navigate = useNavigate();
@@ -10,20 +11,19 @@ const UserInfo = () => {
         userInfo = JSON.parse(storedUser);
     }
 
-    const loguout = () => {
+    const logout = (): void => {
         const auth = getAuth();
-        signOut(auth).then(() => {
+        signOut(auth).then((): void => {
             localStorage.removeItem('user');
             navigate('/login');
-            // Sign-out successful.
         });
     };
 
     return (
-        <>
-            <div> {userInfo ? `Аккаунт: ${userInfo.email}` : null} </div>
-            <ButtonStandart callback={loguout}>Logout</ButtonStandart>
-        </>
+        <div className={s.wrapper}>
+            <span className={s.userName}>{userInfo ? `Аккаунт: ${userInfo.email}` : null}</span>
+            <img className={s.logoutIcon} alt='logout' onClick={logout} src={logoutIcon} />
+        </div>
     );
 };
 

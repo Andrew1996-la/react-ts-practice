@@ -3,40 +3,35 @@ import { useNavigate } from 'react-router-dom';
 import Form from '../../components/form/Form';
 import { useAppDispatch } from '../../hooks';
 import { createUser } from '../../store/userSlice';
+import { handlerError } from '../../utils';
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
-    const handleLogin = (email: string, password: string) => {
-        const auth = getAuth();
-        let userEmail: string | null;
-        let userUid: string | null;
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                const { email, uid } = user;
-                userEmail = email;
-                userUid = uid;
-                return getIdToken(user);
-            })
-            .then((idToken) => {
-                dispatch(
-                    createUser({
-                        isAuth: true,
-                        email: userEmail,
-                        token: idToken,
-                        id: userUid,
-                    })
-                );
-                navigate('/');
-            })
-            .catch((error) => {
-                alert('invalid user');
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
+    const handleLogin = async (email: string, password: string) => {
+        try {
+            const auth = getAuth();
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            const { email: userEmail, uid: userUid } = user;
+
+            const idToken: string = await getIdToken(user);
+
+            dispatch(
+                createUser({
+                    isAuth: true,
+                    email: userEmail,
+                    token: idToken,
+                    id: userUid,
+                })
+            );
+            navigate('/');
+        } catch (error: any) {
+            handlerError(error.code);
+        }
     };
+
     return <Form title='Login' handleLogin={(email, password) => handleLogin(email, password)} />;
 };
 

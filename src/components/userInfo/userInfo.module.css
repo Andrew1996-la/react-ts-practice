@@ -1,7 +1,21 @@
+.wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
 .userName {
     font-size: 18px;
     letter-spacing: 1px;
-    width: 80%;
+    width: auto;
     word-wrap: break-word;
+    cursor: pointer;
+}
+
+.logoutIcon {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
